@@ -13,7 +13,7 @@ promptex 的最小 Rust 消費端專案，同時是 [promptex-resources-rs](http
 | `adapters/ex-minimal-adapter-rs/` | 第三方平台適配擴展，把同一份源碼投影成另一套平台原生產物 |
 | `src/bin/promptex.rs` | 本專案自己的 promptex 執行檔殼。Rust 的求值在編譯期綁定，沒有能動態載入任意路徑源碼的通用執行檔，每個專案因此編譯成自己的一份。bin 名恰好是 `promptex`，那是查詢進入點慣例的另一半：鄰居專案以 `cargo run --quiet --bin promptex` 問得到本專案的結構 |
 
-兩份擴展是本專案的一部分而非獨立套件：它們不自成工作區、不帶各自的消費專案、名稱也不加 registry 搜尋用的 `promptex-plugin-`／`promptex-adapter-` 前綴。`Cargo.toml` 以路徑依賴掛上兩份擴展，它們隨本專案的 `promptex` 執行檔一起編譯：Rust 的求值在編譯期綁定，擴展是同一次編譯的一部分，不是執行期載入的模組。
+兩份擴展是本專案的一部分：它們不自成工作區、不帶各自的消費專案、名稱也不加 registry 搜尋用的 `promptex-plugin-`／`promptex-adapter-` 前綴（改以 keywords 承載可搜尋性）。兩者同時保持可發布形態，中繼欄位與版號比照 promptex 的 alpha 原型套件，發布指令見各自的 README。`Cargo.toml` 以路徑依賴掛上兩份擴展，它們隨本專案的 `promptex` 執行檔一起編譯：Rust 的求值在編譯期綁定，擴展是同一次編譯的一部分，不是執行期載入的模組。
 
 ## 建置與產物
 

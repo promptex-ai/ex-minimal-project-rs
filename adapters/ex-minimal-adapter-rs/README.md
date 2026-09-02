@@ -1,6 +1,6 @@
 # ex-minimal-adapter-rs
 
-[ex-minimal-project-rs](../../) 的第三方平台適配擴展，不是獨立套件。由專案以路徑依賴掛上，隨專案自己的 promptex 執行檔一起編譯：Rust 的求值在編譯期綁定，擴展因此是同一次編譯的一部分，不是執行期載入的模組。
+[ex-minimal-project-rs](../../) 的 adapter 擴展。由專案以路徑依賴掛上，隨專案自己的 promptex 執行檔一起編譯：Rust 的求值在編譯期綁定，擴展因此是同一次編譯的一部分，不是執行期載入的模組；同時保持可發布形態——中繼欄位、參數宣告與授權都隨套件出貨，版號比照 promptex 的 alpha 原型套件。
 
 適配以 SDK 層實作，只用 `AdapterContext` 的公開介面。`emit` 的責任鏈固定四步：
 
@@ -17,4 +17,18 @@
 
 ## 參數宣告
 
-參數宣告（標準 JSON Schema）住crate 根的 `promptex.config.schema.json`，由 `src/lib.rs` 自己讀進來，隨中介表示交給讀取端；`promptex config declare ex-minimal-adapter-rs` 讀的是同一份檔案。
+參數宣告（標準 JSON Schema）住crate 根的 `promptex.config.schema.json`，由 `src/lib.rs` 以 `include_str!` 內嵌，隨中介表示交給讀取端；`promptex config declare ex-minimal-adapter-rs` 讀的是同一份檔案。
+
+## 發布
+
+```bash
+cargo package --list
+cargo publish --dry-run
+cargo publish
+```
+
+`cargo package`／`cargo publish` 刻意不吃外層工作區的 `[patch.crates-io]`，乾跑用的是 registry 上真實存在的 SDK 版本——這正是它能提前抓出版本問題的原因。
+
+發布前先把 SDK 依賴換掉：`[dependencies]` 的 `promptex-rs = "0.0.0"` 指的是開發中的本地 SDK，registry 上目前只有 alpha 原型（只有 `defineSkill` 與 `build` 那一條最窄路徑），不含本擴展用到的 plugin 與適配介面。照現況發布出去，安裝端裝得下來卻編不動。
+
+名稱刻意不帶 `promptex-adapter-` 前綴——那是給要被消費端搜尋到的套件用的；本擴展的定位是示範，改以 keywords 的 `promptex-adapter` 承載可搜尋性。
