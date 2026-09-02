@@ -1,0 +1,13 @@
+# 本 crate 是 ex-minimal-project-rs 的擴展而非獨立專案：不自成 workspace，由
+# 專案以路徑依賴掛上，隨專案自己的 promptex 執行檔一起編譯（Rust 的求值在編譯期
+# 綁定，擴展因此是同一次編譯的一部分，不是執行期載入的模組）。
+[package]
+name = "ex-minimal-plugin-rs"
+version = "0.1.0"
+edition = "2021"
+description = "A promptex plugin."
+license = "MIT OR Apache-2.0"
+publish = false
+
+[dependencies]
+promptex-rs = "0.0.0"

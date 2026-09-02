@@ -1,0 +1,10 @@
+{
+  "platform": "ex-minimal-adapter-rs",
+  "engineVersion": "0.0.0",
+  "files": [
+    {
+      "path": ".ex-minimal-adapter-rs/prompts/example-rule.md",
+      "kind": "text"
+    }
+  ]
+}

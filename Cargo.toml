@@ -10,3 +10,7 @@ publish = false
 
 [dependencies]
 promptex-rs = "0.0.0"
+# 兩份擴展是本專案的一部分，以路徑依賴掛上：它們隨本專案的 promptex 執行檔
+# 一起編譯，promptex.config.rs 才宣告得出「用哪個 plugin、投影到哪些平台」。
+ex-minimal-plugin-rs = { path = "plugins/ex-minimal-plugin-rs" }
+ex-minimal-adapter-rs = { path = "adapters/ex-minimal-adapter-rs" }
