@@ -19,3 +19,15 @@ target
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# === promptex init 產生的忽略規則（重跑以本行判定，勿改寫）===
+# 框架的建置快取。整個 .promptex/ 不忽略：查詢進入點的覆寫檔 .promptex/query
+# 是作者手寫的內容，要入版控；匯出的 .promptex/preview/ 入不入版控由你決定。
+.promptex/cache/
+# 框架每次建置重寫的中繼（結構與內容本體），可重建、不入版控。逐檔明列而非
+# 用 .promptex/*/ 這類萬用：同一層還住著所有權登記 {平台}.json，那是要入版控的。
+.promptex/*/graph.json
+.promptex/*/content.json
+.promptex/*/content-index.json
+# Cargo 的建置輸出，只在專案根那一個。
+/target

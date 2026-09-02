@@ -1,0 +1,12 @@
+# 骨架的空 [workspace] 表在此移除：本倉庫既是獨立倉庫，也以 submodule 掛在
+# promptex-resources-rs 的 example/ 下被成員 glob 收進去。留著空表會讓
+# 外層工作區收不到它；移除後兩種形態都成立——獨立 clone 時本檔自成工作區根，
+# 掛進成員位置時由外層工作區承接。
+[package]
+name = "ex-minimal-project-rs"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+promptex-rs = "0.0.0"
