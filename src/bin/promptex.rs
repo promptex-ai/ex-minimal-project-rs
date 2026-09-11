@@ -1,8 +1,8 @@
 // 本專案自己的 promptex 執行檔：Rust 的求值在編譯期綁定，因此每個專案編譯
 // 成自己的執行檔，而非由通用工具讀取源碼求值。
 //
-// 執行安裝動詞：cargo run -- install .
-// （cargo run -- build . 是編譯動詞，只刷新框架中繼、不落平台產物）
+// 執行安裝旗標：cargo run -- build --install .
+// （cargo run -- build . 是只寫中繼的建置，只刷新框架中繼、不落平台產物）
 //
 // 檔案放在 src/bin/ 底下，bin 名因此是 promptex（Cargo 的自動發現：
 // src/bin/<名字>.rs 即 bin <名字>，不必在 Cargo.toml 寫 [[bin]]）。這個名字是

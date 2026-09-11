@@ -19,7 +19,7 @@ promptex 的最小 Rust 消費端專案，同時是 [promptex-resources-rs](http
 
 ```bash
 cargo fetch
-cargo run -- install .
+cargo run -- build --install .
 ```
 
 產物落在專案根（配置單元的 `out_dir` 是 `.`），並隨源碼一起入版控——讀者不必先跑指令就看得到源碼與產物的對應：

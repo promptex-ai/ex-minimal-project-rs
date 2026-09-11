@@ -13,7 +13,7 @@
 
 ## 在本專案的接法
 
-`promptex.config.rs` 的目標清單寫成 `vec![claude(), ex_minimal_adapter_rs::target(None)]`，claude 是內建適配、本擴展是第三方適配，同一份源碼因此投影出兩套平台原生產物。跑 `cargo run -- install .` 後產物落在 `.ex-minimal-adapter-rs/prompts/`，安裝報告會列出一項降級：範例規則宣告了適用範圍，而本平台無範圍載入機制，改為常駐並在內文標註適用範圍。
+`promptex.config.rs` 的目標清單寫成 `vec![claude(), ex_minimal_adapter_rs::target(None)]`，claude 是內建適配、本擴展是第三方適配，同一份源碼因此投影出兩套平台原生產物。跑 `cargo run -- build --install .` 後產物落在 `.ex-minimal-adapter-rs/prompts/`，安裝報告會列出一項降級：範例規則宣告了適用範圍，而本平台無範圍載入機制，改為常駐並在內文標註適用範圍。
 
 ## 參數宣告
 

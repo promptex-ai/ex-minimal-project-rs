@@ -12,7 +12,7 @@ plugin 產出的是節點而非檔案：要落地的內容以 `define*` 新增�
 
 ## 在本專案的接法
 
-`promptex.config.rs` 以 `.plugins(vec![ex_minimal_plugin_rs::create_plugin(None)])` 掛上。跑 `cargo run -- install .` 後，兩個平台的 `example-rule` 產物末尾都會多出本 plugin 在 `transform` 追加的那一行——那是它有生效的可見證據。
+`promptex.config.rs` 以 `.plugins(vec![ex_minimal_plugin_rs::create_plugin(None)])` 掛上。跑 `cargo run -- build --install .` 後，兩個平台的 `example-rule` 產物末尾都會多出本 plugin 在 `transform` 追加的那一行——那是它有生效的可見證據。
 
 ## 參數宣告
 
