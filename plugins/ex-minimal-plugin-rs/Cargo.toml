@@ -14,4 +14,4 @@ keywords = ["promptex", "prompt", "ai", "llm", "agent"]
 categories = ["development-tools", "development-tools::build-utils"]
 
 [dependencies]
-promptex-rs = "0.0.0"
+promptex-rs = "1.0.1"

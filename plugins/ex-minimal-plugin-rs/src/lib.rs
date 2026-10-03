@@ -23,7 +23,7 @@ pub fn create_plugin(banner: Option<String>) -> Plugin {
         // 宣告本擴充作用在哪幾種節點類型（供文件與讀取端），不隱含過濾。
         .kinds(vec![Kind::Skill, Kind::Rule])
         // 相容的框架版本範圍：安裝的 promptex-rs 落在範圍外時於編譯開始前報錯。
-        .version("^0.0.0")
+        .version("^1.0.0")
         // 參數宣告（標準 JSON Schema）：include_str! 讀 crate 根的同一份檔案，
         // `promptex config declare` 也讀它。
         .config_schema(include_str!("../promptex.config.schema.json"))
