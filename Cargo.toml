@@ -4,7 +4,7 @@
 # 掛進成員位置時由外層工作區承接。
 [package]
 name = "ex-minimal-project-rs"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
 publish = false
 
