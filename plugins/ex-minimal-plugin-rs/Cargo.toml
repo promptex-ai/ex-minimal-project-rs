@@ -12,6 +12,8 @@ description = "promptex plugin 擴展範例：在改寫遍為 skill 與 rule 追
 readme = "README.md"
 keywords = ["promptex", "prompt", "ai", "llm", "agent"]
 categories = ["development-tools", "development-tools::build-utils"]
+# 發布腳本只在發布分支上寫進 crate 目錄的標記檔，不屬於 crate 內容。
+exclude = [".release-marker"]
 
 [dependencies]
 promptex-rs = "1.0.1"

@@ -12,6 +12,8 @@ description = "promptex 第三方平台適配擴展範例：把同一份源碼�
 readme = "README.md"
 keywords = ["promptex", "prompt", "ai", "llm", "agent"]
 categories = ["development-tools", "development-tools::build-utils"]
+# 發布腳本只在發布分支上寫進 crate 目錄的標記檔，不屬於 crate 內容。
+exclude = [".release-marker"]
 
 [dependencies]
 promptex-rs = "1.0.1"

@@ -1,0 +1,4 @@
+{
+  "plugins/ex-minimal-plugin-rs": "0.0.1-alpha.1",
+  "adapters/ex-minimal-adapter-rs": "0.0.1-alpha.1"
+}

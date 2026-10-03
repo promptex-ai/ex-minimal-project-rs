@@ -20,13 +20,9 @@ plugin 產出的是節點而非檔案：要落地的內容以 `define*` 新增�
 
 ## 發布
 
-```bash
-cargo package --list
-cargo publish --dry-run
-cargo publish
-```
+發布走專案的發布流程（Trusted Publishing），不在套件目錄手動發布，步驟見專案根 [README 的「發布」一節](../../README.md#發布)。
 
-`cargo package`／`cargo publish` 刻意不吃外層工作區的 `[patch.crates-io]`，乾跑用的是 registry 上真實存在的 SDK 版本——這正是它能提前抓出版本問題的原因。
+發布前的打包檢查刻意不吃外層工作區的 `[patch.crates-io]`，檢查用的是 registry 上真實存在的 SDK 版本——這正是它能提前抓出版本問題的原因。
 
 SDK 依賴是 `[dependencies]` 的 `promptex-rs`，指向 registry 上正式發布的版本。發布驗證、消費端安裝與實際執行用的都是同一份 SDK。
 
