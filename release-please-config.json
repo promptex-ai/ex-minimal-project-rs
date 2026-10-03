@@ -41,11 +41,13 @@
   "packages": {
     "plugins/ex-minimal-plugin-rs": {
       "component": "ex-minimal-plugin-rs",
-      "release-type": "rust"
+      "release-type": "rust",
+      "initial-version": "1.0.0"
     },
     "adapters/ex-minimal-adapter-rs": {
       "component": "ex-minimal-adapter-rs",
-      "release-type": "rust"
+      "release-type": "rust",
+      "initial-version": "1.0.0"
     }
   }
 }
