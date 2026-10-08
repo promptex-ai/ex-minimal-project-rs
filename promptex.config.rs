@@ -1,3 +1,5 @@
+// Rust 的求值在編譯期綁定：每個節點宣告檔以 #[path] 納入、於 evaluate 逐一
+// 呼叫。新增 prompts/ 下的宣告檔時，比照下方兩行把模組掛進來並加進 evaluate。
 #[path = "prompts/example.rs"]
 mod example;
 
