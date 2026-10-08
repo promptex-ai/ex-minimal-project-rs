@@ -1,6 +1,6 @@
 # ex-minimal-project-rs
 
-promptex 的最小 Rust 消費端專案，同時是 [promptex-resources-rs](https://github.com/promptex-ai/promptex-resources-rs) 的 `example/` 成員（以 submodule 掛入）。骨架由 `promptex init` 產出，之上接了兩份擴展，讓「一份源碼投影到多個平台」與「擴展如何介入」都成為可讀的既成事實。
+promptex 的最小 Rust 消費端專案，同時是 [promptex-resources-rs](https://github.com/promptex-ai/promptex-resources-rs) 的 `example/` 成員（以 submodule 掛入）。骨架由 `cargo create-promptex-rs` 產出（第一次使用前先執行 `cargo install create-promptex-rs`；`promptex init` 已棄用），之上接了兩份擴展，讓「一份源碼投影到多個平台」與「擴展如何介入」都成為可讀的既成事實。
 
 ## 結構
 
@@ -37,15 +37,19 @@ cargo run -- build --install .
 - 範例規則宣告了適用範圍，屬載入宣告三態中的範圍載入態：claude 產物把它表達成 frontmatter 的 `paths`；第三方適配無範圍載入機制，安裝報告因此記一項降級，改為常駐並在內文標註適用範圍
 - 中繼與登記落在 `.promptex/ex-minimal-project-rs/` 而非推導出的 `unit-0`，因為配置宣告了單元名；未宣告時名字綁在陣列位置上，日後在前面插入第二個單元即等同把第一個單元改名
 
-## 與 init 骨架的差異
+## 與 create 骨架的差異
 
-骨架的產物原樣保留，只做以下調整：
+比對對象是先執行 `cargo install create-promptex-rs`，再在名為 `ex-minimal-project-rs` 的目錄跑 `cargo create-promptex-rs ex-minimal-project-rs --locale zh-Hant` 的結果。套件名與配置單元名都取自目錄名，與骨架相同。`prompts/example.rs` 逐字相同，其餘做以下調整：
 
 | 項目 | 骨架 | 本專案 | 差異理由 |
 | :--- | :--- | :--- | :--- |
-| 套件名與配置單元名 | `promptex-prompts` | `ex-minimal-project-rs` | 本專案要當 promptex-resources-rs 的工作區成員，成員名必須唯一，且本倉庫的慣例是成員名等於目錄名 |
-| 空的 `[workspace]` 表 | 有 | 移除 | 空表的作用是切斷外層工作區歸屬，讓目標目錄開在哪裡都編得動；本專案的處境相反，它要被外層倉庫的成員 glob 收進去。移除後獨立 clone（本檔自成工作區根）與掛為成員兩種形態都成立 |
-| 目標平台與 plugin | 只有 claude | 加上第三方適配與 plugin | 骨架示範的是最小可建置形態；本專案要示範的是擴展怎麼介入，兩份擴展因此接進配置 |
+| 空的 `[workspace]` 表 | 有 | 移除 | 空表的作用是讓目標目錄不被算進外層工作區，開在哪裡都編得動；本專案的處境相反，它要被外層倉庫的成員 glob 收進去。移除後獨立 clone（本檔自成工作區根）與掛為成員兩種形態都成立 |
+| 目標平台與 plugin | 只有 claude | 加上第三方適配與 plugin，`Cargo.toml` 以路徑依賴掛上兩份擴展 | 骨架示範的是最小可建置形態；本專案要示範的是擴展怎麼介入，兩份擴展因此接進配置 |
+| 範例技能 | 有 `prompts/example_skill.rs`，`promptex.config.rs` 一併掛進 `evaluate` | 不收 | 本專案只用一份規則示範同一份源碼產生兩個平台的檔案，多一份技能不增加這個對照的資訊 |
+| 專案版號 | `0.1.0` | `1.0.0` | 與已發布的兩份擴展及產品版號一致 |
+| `src/bin/promptex.rs` | 執行檔殼 | 程式碼逐字相同，開頭註解的措辭不同 | 註解不影響建置，執行檔殼沒有專案側可調之處 |
+| `.gitignore` | 只有 promptex 的忽略區塊 | 區塊前加上 github/gitignore 的 Rust 模板與發布腳本的暫存 `/tmp/` | 本倉庫是獨立發布的倉庫，建置與發布流程的衍生物要一起忽略。promptex 區塊原樣保留，它的標記行是重跑時判斷已追加過的依據 |
+| `README.md` | create 寫出的英文專案說明 | 本檔 | 要說明擴展怎麼接、產物怎麼讀與怎麼發布 |
 
 ## 發布
 
