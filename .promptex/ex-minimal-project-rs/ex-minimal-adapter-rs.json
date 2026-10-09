@@ -1,7 +1,7 @@
 {
   "formatVersion": "1.1",
   "platform": "ex-minimal-adapter-rs",
-  "engineVersion": "1.0.1",
+  "engineVersion": "1.1.0",
   "files": [
     {
       "path": ".ex-minimal-adapter-rs/prompts/example-rule.md",

@@ -16,4 +16,4 @@ categories = ["development-tools", "development-tools::build-utils"]
 exclude = [".release-marker"]
 
 [dependencies]
-promptex-rs = "1.0.1"
+promptex-rs = "1.1.0"
