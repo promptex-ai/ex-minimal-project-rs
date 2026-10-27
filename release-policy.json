@@ -1,0 +1,7 @@
+{
+  "product": { "name": "ex-minimal-project-rs", "members": [] },
+  "units": {
+    "ex-minimal-plugin-rs": { "kind": "package", "stages": ["alpha", "ga"] },
+    "ex-minimal-adapter-rs": { "kind": "package", "stages": ["alpha", "ga"] }
+  }
+}
